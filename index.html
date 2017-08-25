@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <title>Horas Finais</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    </head>
+    <body onload="tempo();">
+        <script>
+            var repetir = setInterval(tempo ,1000);
+            function tempo() {
+                var dataAgora = new Date();
+                var dataFinal = new Date("12/9/2017 GMT-0300");
+                var diferenca = Math.abs(dataFinal.getTime() - dataAgora.getTime());
+                var dias = Math.floor(diferenca / (1000 * 3600 * 24));
+                var horas = Math.floor(diferenca / (1000 * 3600 ))%24;
+                var minutos = Math.floor(diferenca / (1000 * 60))%60;
+                var segundos = Math.floor(diferenca / (1000))%60;
+                document.getElementById("dias").innerHTML = dias;
+                document.getElementById("horas").innerHTML = horas ;
+                document.getElementById("minutos").innerHTML = minutos ;
+                document.getElementById("segundos").innerHTML = segundos ;
+            }
+        </script>
+        <div class="navbar navbar-inverse">
+            <div class="container">
+                <a class="navbar-brand">Horas Finais</a>
+            </div>
+        </div>
+        <div class="container body-content">
+            <title>Horas Finais</title>
+            <center><h4>
+                Você está preocupado com o tempo para estudar? Quer saber quantos dias falta para o fim do semestre?<br>
+                Esse contador regressivo mostra quantos dias falta para o semestre acabar.<br>
+                Para uso no 2º semestre de 2017, a data final está de acordo com o <a href="http://www.saa.unb.br/images/stories/documentos/calendarios/graduacao/cal_atividades/cal_atv_22017.pdf">calendário da UnB</a>(8 de dezembro).</h4>
+                <h3>
+                    Dias:<p id="dias"></p>
+                    Horas:<p id="horas"></p>
+                    Minutos:<p id="minutos"></p>
+                    Segundos:<p id="segundos"></p>
+                </h3>
+            </center>
+            <hr>
+            <footer>
+                <p>© 2017 - Horas Finais</p>
+            </footer>
+        </div>
+    </body>
+</html>
